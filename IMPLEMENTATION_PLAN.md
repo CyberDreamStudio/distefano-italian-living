@@ -1,21 +1,10 @@
 # DiStefano Italian Living - Implementation Plan
 
-## Design Inspiration: Six Senses / Belmond
-
-**Key Principles:**
-- Cinematic pacing with generous whitespace (py-32 to py-40)
-- Warm, earthy color palette (sage/olive, terracotta, antique gold)
-- Light font weights for elegance
-- Scroll-triggered fade-in animations
-- Asymmetric, editorial layouts
-- Thin borders, understated buttons
-- Wide letter-spacing throughout
-
----
-
-## PHASE 0 — Project Setup [DONE]
+## PHASE 0 — Project Setup
 
 ### Next.js Setup [DONE]
+~~Run: `npx create-next-app@latest distefano-italian-living`~~
+
 Options used:
 - TypeScript: Yes
 - Tailwind: Yes
@@ -23,6 +12,10 @@ Options used:
 - **src directory: No** (using default `/app` structure)
 
 ### shadcn Setup [DONE]
+~~Run: `npx shadcn@latest init`~~
+
+Components to install as needed:
+- button, card, dialog, input, textarea
 
 ### Project Structure
 ```
@@ -36,252 +29,200 @@ Options used:
 
 ---
 
-## PHASE 0.5 — Design Foundation [DONE - NEEDS REFINEMENT]
+## PHASE 0.5 — Design Foundation
 
 ### Typography Setup
 Configure in `layout.tsx`:
-- **Headings:** Playfair Display (luxury serif) - **use light/regular weights**
-- **Body:** Inter (clean sans-serif) - **use light weight (300)**
+- **Headings:** Playfair Display (luxury serif)
+- **Body:** Inter (clean sans-serif)
 
-### Color Palette (Six Senses Inspired)
-Configure warm luxury palette in `globals.css`:
-- **Background:** Warm cream (#FAF8F5)
-- **Foreground:** Warm charcoal (#2C2A26)
-- **Accent Primary:** Sage/Olive (#7D8471)
-- **Accent Secondary:** Terracotta (#C4A484)
-- **Accent Tertiary:** Antique Gold (#B8A88A)
-- **Muted:** Warm stone gray (#A39E93)
+### Color Palette
+Configure luxury palette in `globals.css`:
+- **Primary:** Deep charcoal (#1a1a1a)
+- **Accent:** Warm gold (#b8860b) or Terracotta (#c67b5c)
+- **Background:** Off-white/cream (#faf9f6)
+- **Muted:** Warm grays
 
-### Placeholder Colors (Warm Tones)
-Instead of gray placeholders:
-- Sage: #E8EBE4
-- Sand: #F0EBE3
-- Terracotta Light: #F2E8E0
-
-### Global Styles
-- Wide letter-spacing on headings: tracking-[0.2em] to tracking-[0.3em]
-- Light font weights: font-light (300)
-- Generous line-height: leading-relaxed to leading-loose
-- Scroll-triggered animations using CSS @keyframes + Intersection Observer
+### Animations (Global)
+- Smooth scroll behavior
+- Subtle fade-in on scroll (Intersection Observer)
+- Elegant hover transitions
 
 ---
 
-## STEP 1 — Navigation Bar [DONE - NEEDS REFINEMENT]
+## STEP 1 — Navigation Bar
 
 Create file: `/components/navbar.tsx`
 
-**Brand:** DiStefano Italian Living (or just "DiStefano")
+**Brand:** DiStefano Italian Living
 
-**Left:** Brand logo text using Playfair Display, light weight
+**Left:** Brand logo text using Playfair Display
 
-**Right links:** Experience | Properties | Contact (reduced to 3 links)
+**Right links:** Experience | Properties | Process | About | Contact
 
-**CTA button:** Text-only link style "Begin Your Journey" with subtle underline
+**CTA button:** Start Your Journey
 
 **Behavior:**
-- Transparent over hero with white text
-- Warm cream background when scrolling (sticky)
+- Transparent over hero
+- Solid background when scrolling (sticky)
 
-**Mobile:** Minimal hamburger, full-screen overlay menu
+**Mobile:** Hamburger menu with dropdown
 
-**Style:** 
-- Ultra-minimal like Six Senses
-- Wide letter-spacing (tracking-[0.15em])
-- Generous padding (py-6 to py-8)
-- Thin, elegant typography
+**Style:** Luxury spacing, minimal, elegant typography
 
 ---
 
-## STEP 2 — Hero Section (Video Infrastructure) [DONE - NEEDS REFINEMENT]
+## STEP 2 — Hero Section (Video Infrastructure)
 
 Create file: `/components/sections/hero.tsx`
 
-**Background:** Warm-toned placeholder (sage or sand color, not gray)
+**Background:** Placeholder container for future self-hosted video
+- Styled placeholder box with "VIDEO PLACEHOLDER" text
 - Ready for `<video>` element swap later (no external platform branding)
 
-**Gradient overlay:** Subtle, barely visible - `bg-gradient-to-b from-black/40 via-transparent to-black/50`
+**Gradient overlay:** `bg-gradient-to-b from-black/60 via-black/30 to-black/70`
 
-**Content (LEFT-ALIGNED, not centered - Six Senses style):**
-- **Small tagline above:** "Private Property Advisory" (uppercase, wide tracking)
-- **Headline:** Own a Piece of Italy (Playfair Display, light weight, very large)
-- **Subheadline:** Positioned below with generous spacing, light font
-- **Links:** Text-only with subtle underlines, not heavy buttons
+**Content (centered):**
+- **Headline:** Own a Piece of Italy
+- **Subheadline:** Private property acquisition and Italian lifestyle advisory for international buyers.
+- **Buttons:** "Start Your Journey" | "Watch the Film"
 
-**Layout:**
-- Text positioned in bottom-left quadrant
-- Generous padding from edges (px-12 to px-20)
-- Asymmetric, editorial feel
+**Watch the Film modal:**
+- Uses shadcn Dialog
+- Placeholder for self-hosted video (no YouTube/Vimeo)
+- Structure ready for `<video src="/videos/film.mp4" controls />` integration
 
-**Watch the Film:**
-- Small text link, not prominent button
-- Uses shadcn Dialog with warm overlay
+**Bottom:** Subtle scroll indicator
 
-**Bottom:** Minimal scroll indicator (thin line or small arrow)
-
-**Animation:** Text fades in on load with staggered timing
-
-**Design feel:** Six Senses - cinematic, understated, breathing room
+**Design feel:** Luxury hospitality (Aman, Six Senses pacing)
 
 ---
 
-## STEP 3 — Emotional Story Section [DONE - NEEDS REFINEMENT]
+## STEP 3 — Emotional Story Section
 
 Create file: `/components/sections/emotional.tsx`
 
-**Layout:** Two columns, generous gap, asymmetric sizing
-
-**Section padding:** py-32 to py-40 (Six Senses breathing room)
+**Layout:** Two columns
 
 **Title:** More Than Property. A Way of Living.
-- Light weight, wide tracking
 
-**Left:** Large editorial image placeholder (warm sand/sage tone)
-- Aspect ratio 3:4 or 4:5 (portrait, editorial)
+**Left:** Large editorial image placeholder
 
 **Right text:**
-- Each paragraph separated with generous margin
-- Light font weight, relaxed line-height
-- Text fades in on scroll
+> For many, Italy is a destination.
+> For a few, it becomes home.
+> 
+> DiStefano Italian Living guides international buyers through the journey of discovering, experiencing, and ultimately owning a piece of Italy.
+> 
+> From the moment you arrive to the moment you receive the keys to your home, every detail is curated.
+> 
+> This is not real estate. This is Italian living.
 
-**Animation:** Staggered fade-in-up on scroll
+**Style:** Elegant typography, wide spacing, editorial layout
 
 ---
 
-## STEP 4 — Services Section [DONE - NEEDS REFINEMENT]
+## STEP 4 — Services Section
 
 Create file: `/components/sections/services.tsx`
 
-**Background:** Warm charcoal or deep sage (dark section for contrast)
-**Text:** Cream/off-white
-
-**Section padding:** py-32 to py-40
-
 **Section title:** Your Journey to Italy
-- Uppercase, wide tracking, small size
+**Subtitle:** A fully curated path from discovery to ownership.
 
-**4 Service Items (minimal cards, no heavy borders):**
-- Number prefix: 01, 02, 03, 04
-- Title in Playfair, light weight
-- Description in Inter light
-- Thin bottom border separator only
+**4 Cards (shadcn Card):**
+1. **Discovery** — Private consultation to understand lifestyle goals.
+2. **Curated Italy Experience** — Private tours and lifestyle immersion across Italy.
+3. **Property Acquisition** — Access to exclusive properties and negotiation support.
+4. **Legal & Ownership Support** — Complete legal assistance including notarial processes.
 
-**Layout:** 2x2 grid on desktop, single column mobile
-
-**Interaction:** Subtle opacity/translate on hover
+**Interaction:** Subtle hover animation
 
 ---
 
-## STEP 5 — Lifestyle Section [DONE - NEEDS REFINEMENT]
+## STEP 5 — Lifestyle Section
 
 Create file: `/components/sections/lifestyle.tsx`
 
 **Title:** Experience the Italy Few Truly Know
-- Uppercase tagline above, wide tracking
 
-**Section padding:** py-32
+**Layout:** Three large image tiles (placeholders)
 
-**Layout:** Three large image tiles (warm-toned placeholders)
-- Full-width on mobile
-- Asymmetric grid on desktop (1 large left, 2 stacked right)
+**Tiles:**
+1. Coastal Living
+2. Countryside Retreats
+3. Historic Estates
 
-**Placeholder colors:** 
-- Coastal: Soft blue-gray (#E5E8EB)
-- Countryside: Sage (#E8EBE4)
-- Historic: Warm terracotta (#F2E8E0)
+**Interaction:** Hover zoom effect
 
-**Interaction:** 
-- Slow scale on hover (scale-105, duration-700)
-- Title overlay appears on hover
-
-**Animation:** Staggered fade-in on scroll
+**Goal:** Make visitors imagine living in Italy
 
 ---
 
-## STEP 6 — Process Section [DONE - NEEDS REFINEMENT]
+## STEP 6 — Process Section
 
 Create file: `/components/sections/process.tsx`
 
-**Background:** Warm cream
-
 **Title:** A Discreet and Personal Process
-- Centered, light weight
 
-**Section padding:** py-32 to py-40
+**Steps (elegant timeline):**
+1. **01 Initial Consultation** — Understanding your goals and vision.
+2. **02 Curated Property Discovery** — Private property selection across Italy.
+3. **03 Italy Experience** — Visit Italy and explore properties.
+4. **04 Secure Acquisition** — Legal process and ownership completion.
 
-**Steps (horizontal on desktop, vertical on mobile):**
-1. **01** Initial Consultation
-2. **02** Curated Discovery
-3. **03** Italy Experience
-4. **04** Secure Acquisition
-
-**Design:** 
-- Large step numbers in light Playfair
-- Thin connecting lines between steps
-- Minimal text, wide spacing
-
-**Animation:** Steps fade in sequentially on scroll
+**Design:** Elegant vertical/horizontal timeline layout
 
 ---
 
-## STEP 7 — Authority Section [DONE - NEEDS REFINEMENT]
+## STEP 7 — Authority Section
 
 Create file: `/components/sections/authority.tsx`
 
-**Background:** Deep warm charcoal
-**Text:** Cream
+**Title:** Led by Legal Expertise
 
-**Section padding:** py-32
+**Content:**
+> DiStefano Italian Living is founded by an Italian legal professional with experience in property law and international transactions.
+> 
+> Clients benefit from legal expertise, local connections, and trusted guidance throughout the acquisition process.
 
-**Layout:** 
-- Large pull quote style
-- Image placeholder on one side (portrait)
-- Quote on the other side with attribution
+**Layout:** Image left, text right
 
-**Typography:**
-- Quote in large Playfair italic
-- Attribution in small uppercase Inter
+**Goal:** Build trust for international buyers
 
 ---
 
-## STEP 8 — Inquiry Form Section [NO CHANGES TO FIELDS]
+## STEP 8 — Inquiry Form Section
 
 Create file: `/components/sections/inquiry.tsx`
 
-**Background:** Warm cream
+**Title:** Begin Your Italian Journey
+**Subtitle:** Tell us about your vision.
 
-**Section padding:** py-32
+**Fields:**
+- Name
+- Email
+- Country
+- Property Budget Range
+- Message
 
-**Layout:** Two columns
-- Left: Heading + supportive text
-- Right: Form fields
+**CTA button:** Request Private Consultation
 
-**Styling refinements:**
-- Thin border inputs (1px)
-- Wide letter-spacing on labels
-- Light font weights
-- Submit button: Thin border, wide tracking, subtle
+**Note below form:** All inquiries are handled privately and confidentially.
 
-**Fields:** (unchanged)
-- Name, Email, Country, Property Budget Range, Message
+**Backend:** Form structured for easy future integration (commented placeholder for API route connection)
 
 ---
 
-## STEP 9 — Footer [DONE - NEEDS REFINEMENT]
+## STEP 9 — Footer
 
 Create file: `/components/footer.tsx`
 
-**Background:** Warm charcoal
-**Text:** Cream/muted
+**Left:** DiStefano Italian Living
+**Tagline:** Private Property & Lifestyle Advisory
 
-**Style:**
-- Ultra-minimal like Six Senses
-- Wide letter-spacing
-- Generous padding (py-16 to py-20)
+**Right links:** Experience | Process | About | Contact
 
-**Left:** DiStefano (simplified brand)
-**Right links:** Experience | Contact (minimal)
-
-**Bottom:** Small copyright, muted color
+**Bottom:** © DiStefano Italian Living. All rights reserved.
 
 ---
 

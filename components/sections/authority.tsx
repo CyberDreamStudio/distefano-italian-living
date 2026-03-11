@@ -1,69 +1,50 @@
-"use client"
-
-import { useScrollAnimation } from "@/hooks/use-scroll-animation"
-import { cn } from "@/lib/utils"
+import { ImageIcon } from "lucide-react"
 
 export function Authority() {
-  const { ref, isVisible } = useScrollAnimation()
-
   return (
-    <section id="about" ref={ref} className="py-32 lg:py-48 bg-charcoal">
-      <div className="mx-auto max-w-7xl px-8 lg:px-16">
+    <section id="about" className="py-24 lg:py-32 bg-background">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-16 lg:mb-20">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-charcoal tracking-tight">
+            Led by Legal Expertise
+          </h2>
+        </div>
+
         {/* Two Column Layout */}
-        <div className="grid lg:grid-cols-5 gap-16 lg:gap-24 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left: Image Placeholder */}
-          <div 
-            className={cn(
-              "lg:col-span-2 order-2 lg:order-1 transition-all duration-1000",
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            )}
-          >
-            <div className="aspect-[3/4] bg-charcoal-light max-w-sm mx-auto lg:mx-0" />
+          <div className="relative order-2 lg:order-1">
+            <div className="aspect-square bg-muted flex items-center justify-center max-w-md mx-auto">
+              <div className="text-center text-muted-foreground">
+                <ImageIcon size={48} className="mx-auto mb-4 opacity-40" />
+                <p className="text-sm tracking-widest uppercase">Portrait</p>
+                <p className="text-xs mt-2 opacity-60">Founder Image</p>
+              </div>
+            </div>
+            {/* Decorative element */}
+            <div className="absolute -top-6 -left-6 w-full h-full border border-gold/20 -z-10 hidden lg:block" />
           </div>
 
-          {/* Right: Quote & Content */}
-          <div className="lg:col-span-3 order-1 lg:order-2">
-            <p 
-              className={cn(
-                "text-[11px] text-cream/40 tracking-[0.3em] uppercase mb-8 transition-all duration-1000",
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-              )}
-            >
-              Our Expertise
-            </p>
-            
-            <blockquote 
-              className={cn(
-                "font-serif text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-light text-cream leading-[1.3] tracking-[-0.01em] mb-12 transition-all duration-1000 delay-100",
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-              )}
-            >
-              <span className="italic">{"\"Our approach combines the precision of legal expertise with the warmth of Italian hospitality.\""}</span>
-            </blockquote>
-
-            <div 
-              className={cn(
-                "space-y-6 text-base lg:text-lg text-cream/60 font-light leading-relaxed max-w-xl transition-all duration-1000 delay-200",
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-              )}
-            >
+          {/* Right: Text Content */}
+          <div className="order-1 lg:order-2">
+            <div className="space-y-6 text-lg text-charcoal/80 font-light leading-relaxed">
               <p>
-                DiStefano Italian Living is founded by an Italian legal professional with deep experience in property law and international transactions.
+                DiStefano Italian Living is founded by an Italian legal professional with experience in property law and international transactions.
               </p>
               
               <p>
-                Clients benefit from legal expertise, trusted local connections, and personalized guidance throughout their entire journey.
+                Clients benefit from legal expertise, local connections, and trusted guidance throughout the acquisition process.
               </p>
-            </div>
 
-            <div 
-              className={cn(
-                "mt-12 pt-8 border-t border-cream/10 transition-all duration-1000 delay-300",
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-              )}
-            >
-              <p className="text-[11px] text-cream/40 tracking-[0.2em] uppercase">
-                Founder, DiStefano Italian Living
+              <div className="w-16 h-px bg-gold my-8" />
+
+              <blockquote className="text-xl lg:text-2xl text-charcoal font-serif italic border-l-2 border-gold/40 pl-6">
+                {"\"Our approach combines the precision of legal expertise with the warmth of Italian hospitality.\""}
+              </blockquote>
+
+              <p className="text-sm text-muted-foreground tracking-wide">
+                — Founder, DiStefano Italian Living
               </p>
             </div>
           </div>

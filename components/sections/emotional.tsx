@@ -1,91 +1,55 @@
-"use client"
-
-import { useScrollAnimation } from "@/hooks/use-scroll-animation"
-import { cn } from "@/lib/utils"
+import { ImageIcon } from "lucide-react"
 
 export function Emotional() {
-  const { ref, isVisible } = useScrollAnimation()
-
   return (
-    <section id="experience" className="py-32 lg:py-48 bg-cream">
-      <div className="mx-auto max-w-7xl px-8 lg:px-16">
+    <section id="experience" className="py-24 lg:py-32 bg-background">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-16 lg:mb-24">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-charcoal tracking-tight">
+            More Than Property.
+          </h2>
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-charcoal tracking-tight mt-2">
+            A Way of Living.
+          </h2>
+        </div>
+
         {/* Two Column Layout */}
-        <div ref={ref} className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-          {/* Left: Image Placeholder - Warm Sand Tone */}
-          <div 
-            className={cn(
-              "relative transition-all duration-1000",
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            )}
-          >
-            <div className="aspect-[3/4] bg-sand" />
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Left: Image Placeholder */}
+          <div className="relative">
+            <div className="aspect-[4/5] bg-muted flex items-center justify-center">
+              <div className="text-center text-muted-foreground">
+                <ImageIcon size={48} className="mx-auto mb-4 opacity-40" />
+                <p className="text-sm tracking-widest uppercase">Editorial Image</p>
+                <p className="text-xs mt-2 opacity-60">Italian Villa or Landscape</p>
+              </div>
+            </div>
+            {/* Decorative element */}
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 border border-gold/30 hidden lg:block" />
           </div>
 
           {/* Right: Text Content */}
-          <div className="lg:pt-16">
-            {/* Section Label */}
-            <p 
-              className={cn(
-                "text-[11px] text-stone tracking-[0.3em] uppercase mb-8 transition-all duration-1000 delay-100",
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-              )}
-            >
-              Our Philosophy
-            </p>
-            
-            {/* Main Title */}
-            <h2 
-              className={cn(
-                "font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-charcoal leading-[1.2] tracking-[-0.01em] mb-12 lg:mb-16 transition-all duration-1000 delay-200",
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-              )}
-            >
-              More Than Property.<br />
-              A Way of Living.
-            </h2>
-            
-            <div className="space-y-8 text-base lg:text-lg text-charcoal/70 font-light leading-relaxed">
-              <p 
-                className={cn(
-                  "text-xl lg:text-2xl text-charcoal/90 font-light leading-snug transition-all duration-1000 delay-300",
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                )}
-              >
-                For many, Italy is a destination.<br />
+          <div className="lg:pl-8">
+            <div className="space-y-6 text-lg text-charcoal/80 font-light leading-relaxed">
+              <p className="text-xl lg:text-2xl text-charcoal font-normal">
+                For many, Italy is a destination.
+              </p>
+              <p className="text-xl lg:text-2xl text-charcoal font-normal">
                 For a few, it becomes home.
               </p>
               
-              <div 
-                className={cn(
-                  "w-12 h-px bg-sage my-10 transition-all duration-1000 delay-400",
-                  isVisible ? "opacity-100 w-12" : "opacity-0 w-0"
-                )}
-              />
+              <div className="w-16 h-px bg-gold my-8" />
               
-              <p 
-                className={cn(
-                  "transition-all duration-1000 delay-500",
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                )}
-              >
+              <p>
                 DiStefano Italian Living guides international buyers through the journey of discovering, experiencing, and ultimately owning a piece of Italy.
               </p>
               
-              <p 
-                className={cn(
-                  "transition-all duration-1000 delay-600",
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                )}
-              >
+              <p>
                 From the moment you arrive to the moment you receive the keys to your home, every detail is curated.
               </p>
               
-              <p 
-                className={cn(
-                  "text-charcoal/90 font-serif italic text-lg lg:text-xl pt-4 transition-all duration-1000 delay-700",
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                )}
-              >
+              <p className="text-charcoal font-medium italic">
                 This is not real estate. This is Italian living.
               </p>
             </div>

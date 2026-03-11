@@ -3,11 +3,14 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
+import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
 const navLinks = [
   { href: "#experience", label: "Experience" },
   { href: "#properties", label: "Properties" },
+  { href: "#process", label: "Process" },
+  { href: "#about", label: "About" },
   { href: "#contact", label: "Contact" },
 ]
 
@@ -27,102 +30,101 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-700",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         isScrolled
-          ? "bg-cream/98 backdrop-blur-md"
+          ? "bg-cream/95 backdrop-blur-sm border-b border-border shadow-sm"
           : "bg-transparent"
       )}
     >
-      <nav className="mx-auto flex items-center justify-between px-8 py-6 lg:px-16 lg:py-8">
-        {/* Logo - Minimal */}
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+        {/* Logo */}
         <Link href="/" className="flex items-center">
           <span
             className={cn(
-              "font-serif text-lg font-normal tracking-[0.15em] transition-colors duration-500 lg:text-xl",
+              "font-serif text-xl font-semibold tracking-wide transition-colors duration-300 lg:text-2xl",
               isScrolled ? "text-charcoal" : "text-white"
             )}
           >
             DiStefano
           </span>
+          <span
+            className={cn(
+              "ml-2 hidden font-sans text-sm font-light tracking-widest uppercase sm:inline-block transition-colors duration-300",
+              isScrolled ? "text-charcoal/70" : "text-white/80"
+            )}
+          >
+            Italian Living
+          </span>
         </Link>
 
-        {/* Desktop Navigation - Ultra Minimal */}
-        <div className="hidden items-center gap-12 lg:flex">
+        {/* Desktop Navigation */}
+        <div className="hidden items-center gap-8 lg:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={cn(
-                "text-[13px] font-light tracking-[0.2em] uppercase transition-all duration-500 hover:opacity-60",
+                "text-sm font-light tracking-wide transition-colors duration-300 hover:opacity-70",
                 isScrolled ? "text-charcoal" : "text-white"
               )}
             >
               {link.label}
             </Link>
           ))}
-          <Link
-            href="#contact"
+          <Button
+            asChild
             className={cn(
-              "ml-8 text-[13px] font-light tracking-[0.15em] transition-all duration-500 border-b pb-0.5",
-              isScrolled 
-                ? "text-charcoal border-charcoal/30 hover:border-charcoal" 
-                : "text-white border-white/30 hover:border-white"
+              "ml-4 rounded-none px-6 py-2 text-sm font-light tracking-wider transition-all duration-300",
+              isScrolled
+                ? "bg-charcoal text-cream hover:bg-charcoal/90"
+                : "bg-white/10 text-white backdrop-blur-sm border border-white/30 hover:bg-white/20"
             )}
           >
-            Begin Your Journey
-          </Link>
+            <Link href="#contact">Start Your Journey</Link>
+          </Button>
         </div>
 
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className={cn(
-            "lg:hidden p-2 transition-colors duration-500",
+            "lg:hidden p-2 transition-colors duration-300",
             isScrolled ? "text-charcoal" : "text-white"
           )}
           aria-label="Toggle menu"
         >
-          {isMobileMenuOpen ? <X size={20} strokeWidth={1} /> : <Menu size={20} strokeWidth={1} />}
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </nav>
 
-      {/* Mobile Menu - Full Screen Overlay */}
+      {/* Mobile Menu */}
       <div
         className={cn(
-          "lg:hidden fixed inset-0 bg-cream z-40 transition-all duration-700 ease-in-out flex flex-col justify-center items-center",
-          isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          "lg:hidden overflow-hidden transition-all duration-500 ease-in-out",
+          isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         )}
       >
-        <button
-          onClick={() => setIsMobileMenuOpen(false)}
-          className="absolute top-6 right-8 text-charcoal p-2"
-          aria-label="Close menu"
-        >
-          <X size={24} strokeWidth={1} />
-        </button>
-        
-        <div className="flex flex-col items-center gap-8">
-          {navLinks.map((link, index) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className={cn(
-                "text-charcoal text-2xl font-serif font-light tracking-[0.1em] transition-all duration-300",
-                isMobileMenuOpen && "animate-fade-in-up",
-              )}
-              style={{ animationDelay: `${index * 100}ms` }}
+        <div className="bg-cream/95 backdrop-blur-sm border-t border-border px-6 py-6">
+          <div className="flex flex-col gap-4">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-charcoal text-base font-light tracking-wide py-2 border-b border-border/50 last:border-0"
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Button
+              asChild
+              className="mt-4 rounded-none bg-charcoal text-cream hover:bg-charcoal/90 px-6 py-3 text-sm font-light tracking-wider"
             >
-              {link.label}
-            </Link>
-          ))}
-          <Link
-            href="#contact"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="mt-8 text-charcoal text-sm font-light tracking-[0.2em] uppercase border-b border-charcoal/30 pb-1 hover:border-charcoal transition-all duration-300"
-          >
-            Begin Your Journey
-          </Link>
+              <Link href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
+                Start Your Journey
+              </Link>
+            </Button>
+          </div>
         </div>
       </div>
     </header>
