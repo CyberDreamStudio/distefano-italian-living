@@ -1,76 +1,87 @@
-import { Compass, MapPin, Home, Scale } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
+"use client"
+
+import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+import { cn } from "@/lib/utils"
 
 const services = [
   {
-    icon: Compass,
+    number: "01",
     title: "Discovery",
-    description: "Private consultation to understand lifestyle goals.",
+    description: "Private consultation to understand your lifestyle aspirations and vision for Italian living.",
   },
   {
-    icon: MapPin,
-    title: "Curated Italy Experience",
-    description: "Private tours and lifestyle immersion across Italy.",
+    number: "02",
+    title: "Curated Experience",
+    description: "Immersive private tours across Italy's most coveted regions, tailored to your preferences.",
   },
   {
-    icon: Home,
+    number: "03",
     title: "Property Acquisition",
-    description: "Access to exclusive properties and negotiation support.",
+    description: "Access to exclusive off-market properties with expert negotiation and due diligence.",
   },
   {
-    icon: Scale,
-    title: "Legal & Ownership Support",
-    description: "Complete legal assistance including notarial processes.",
+    number: "04",
+    title: "Legal & Ownership",
+    description: "Complete legal assistance through Italian property law and notarial processes.",
   },
 ]
 
 export function Services() {
+  const { ref, isVisible } = useScrollAnimation()
+
   return (
-    <section id="properties" className="py-24 lg:py-32 bg-charcoal">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section id="properties" className="py-32 lg:py-48 bg-charcoal">
+      <div ref={ref} className="mx-auto max-w-7xl px-8 lg:px-16">
         {/* Section Header */}
-        <div className="text-center mb-16 lg:mb-20">
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-cream tracking-tight">
+        <div className="mb-20 lg:mb-28">
+          <p 
+            className={cn(
+              "text-[11px] text-cream/40 tracking-[0.3em] uppercase mb-6 transition-all duration-1000",
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            )}
+          >
+            Our Services
+          </p>
+          <h2 
+            className={cn(
+              "font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light text-cream leading-[1.15] tracking-[-0.01em] max-w-2xl transition-all duration-1000 delay-100",
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            )}
+          >
             Your Journey to Italy
           </h2>
-          <p className="mt-6 text-lg text-cream/60 font-light max-w-2xl mx-auto">
-            A fully curated path from discovery to ownership.
-          </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        {/* Services Grid - Minimal Style */}
+        <div className="grid md:grid-cols-2 gap-x-16 lg:gap-x-24">
           {services.map((service, index) => (
-            <Card
+            <div
               key={service.title}
-              className="bg-transparent border border-cream/10 rounded-none group hover:border-gold/40 transition-all duration-500"
+              className={cn(
+                "py-10 lg:py-14 border-t border-cream/10 group transition-all duration-1000",
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              )}
+              style={{ transitionDelay: `${200 + index * 100}ms` }}
             >
-              <CardContent className="p-8">
+              <div className="flex items-start gap-8 lg:gap-12">
                 {/* Number */}
-                <span className="text-xs text-gold/60 tracking-widest">
-                  0{index + 1}
+                <span className="text-[11px] text-sage tracking-[0.2em] pt-1">
+                  {service.number}
                 </span>
                 
-                {/* Icon */}
-                <div className="mt-6 mb-6">
-                  <service.icon
-                    size={32}
-                    strokeWidth={1}
-                    className="text-cream/80 group-hover:text-gold transition-colors duration-500"
-                  />
+                <div className="flex-1">
+                  {/* Title */}
+                  <h3 className="font-serif text-xl lg:text-2xl font-light text-cream mb-4 group-hover:text-sage transition-colors duration-500">
+                    {service.title}
+                  </h3>
+                  
+                  {/* Description */}
+                  <p className="text-cream/50 font-light text-sm lg:text-base leading-relaxed">
+                    {service.description}
+                  </p>
                 </div>
-                
-                {/* Title */}
-                <h3 className="font-serif text-xl text-cream mb-4">
-                  {service.title}
-                </h3>
-                
-                {/* Description */}
-                <p className="text-cream/50 font-light text-sm leading-relaxed">
-                  {service.description}
-                </p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           ))}
         </div>
       </div>

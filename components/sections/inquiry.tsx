@@ -11,10 +11,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+import { cn } from "@/lib/utils"
 
 export function Inquiry() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const { ref, isVisible } = useScrollAnimation()
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -31,17 +34,44 @@ export function Inquiry() {
   }
 
   return (
-    <section id="contact" className="py-24 lg:py-32 bg-charcoal">
-      <div className="mx-auto max-w-3xl px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-12 lg:mb-16">
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-cream tracking-tight">
-            Begin Your Italian Journey
-          </h2>
-          <p className="mt-6 text-lg text-cream/60 font-light">
-            Tell us about your vision.
-          </p>
-        </div>
+    <section id="contact" ref={ref} className="py-32 lg:py-48 bg-cream">
+      <div className="mx-auto max-w-7xl px-8 lg:px-16">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+          {/* Left: Header Content */}
+          <div>
+            <p 
+              className={cn(
+                "text-[11px] text-stone tracking-[0.3em] uppercase mb-6 transition-all duration-1000",
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              )}
+            >
+              Get in Touch
+            </p>
+            <h2 
+              className={cn(
+                "font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-charcoal leading-[1.15] tracking-[-0.01em] mb-8 transition-all duration-1000 delay-100",
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              )}
+            >
+              Begin Your Italian Journey
+            </h2>
+            <p 
+              className={cn(
+                "text-base lg:text-lg text-charcoal/60 font-light leading-relaxed max-w-md transition-all duration-1000 delay-200",
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              )}
+            >
+              Share your vision with us. Every journey begins with a conversation.
+            </p>
+          </div>
+
+          {/* Right: Form */}
+          <div 
+            className={cn(
+              "transition-all duration-1000 delay-300",
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            )}
+          >
 
         {isSubmitted ? (
           <div className="text-center py-12">
