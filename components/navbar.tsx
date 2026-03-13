@@ -24,7 +24,7 @@ export function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-700",
         isScrolled
-          ? "bg-cream/95 backdrop-blur-sm"
+          ? "bg-background/95 backdrop-blur-sm border-b border-border"
           : "bg-transparent"
       )}
     >
@@ -84,7 +84,7 @@ export function Navbar() {
           isMobileMenuOpen ? "max-h-48 opacity-100" : "max-h-0 opacity-0"
         )}
       >
-        <div className="bg-cream/98 backdrop-blur-sm px-6 py-8">
+        <div className="bg-background/98 backdrop-blur-sm px-6 py-8 border-t border-border">
           <Button
             asChild
             className="w-full rounded-none bg-charcoal text-cream hover:bg-charcoal/90 px-6 py-5 text-[10px] font-light tracking-[0.2em] uppercase"

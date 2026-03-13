@@ -35,7 +35,7 @@ export function Process() {
   const [expandedStep, setExpandedStep] = useState<string | null>(null)
 
   return (
-    <section id="process" className="py-32 lg:py-48 bg-muted">
+    <section id="process" className="py-32 lg:py-48 bg-background">
       <div className="mx-auto max-w-4xl px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-24 lg:mb-32">
@@ -65,7 +65,7 @@ export function Process() {
                 {/* Number Circle */}
                 <div 
                   className={cn(
-                    "absolute top-0 w-8 h-8 bg-background border border-charcoal/20 flex items-center justify-center",
+                    "absolute top-0 w-8 h-8 bg-background border border-charcoal/15 flex items-center justify-center",
                     "left-0 lg:left-1/2 lg:-translate-x-1/2"
                   )}
                 >

@@ -3,7 +3,7 @@ import { FadeIn } from "@/components/ui/fade-in"
 
 export function Emotional() {
   return (
-    <section id="experience" className="py-32 lg:py-48 bg-background">
+    <section id="experience" className="py-32 lg:py-48 bg-secondary">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         {/* Section Header - More minimal */}
         <FadeIn className="text-center mb-24 lg:mb-32">

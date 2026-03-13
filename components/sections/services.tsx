@@ -29,14 +29,14 @@ const pillars = [
 
 export function Services() {
   return (
-    <section id="properties" className="py-32 lg:py-48 bg-charcoal">
+    <section id="properties" className="py-32 lg:py-48 bg-secondary">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Section Header */}
         <FadeIn className="text-center mb-24 lg:mb-32">
-          <p className="text-[10px] tracking-[0.3em] uppercase text-gold/60 font-light mb-6">
+          <p className="text-[10px] tracking-[0.3em] uppercase text-charcoal/40 font-light mb-6">
             The Journey
           </p>
-          <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-cream tracking-wide font-normal">
+          <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-charcoal tracking-wide font-normal">
             Your Journey to Italy
           </h2>
         </FadeIn>
@@ -50,36 +50,36 @@ export function Services() {
               className="group relative"
             >
               {/* Image Placeholder */}
-              <div className="aspect-[4/5] bg-charcoal border border-cream/10 flex items-center justify-center relative overflow-hidden mb-8">
-                <div className="text-center text-cream/20 z-10">
-                  <ImageIcon size={32} className="mx-auto mb-3 opacity-40" />
+              <div className="aspect-[4/5] bg-muted border border-border flex items-center justify-center relative overflow-hidden mb-8">
+                <div className="text-center text-muted-foreground z-10">
+                  <ImageIcon size={32} className="mx-auto mb-3 opacity-30" />
                   <p className="text-[10px] tracking-[0.2em] uppercase">{pillar.title}</p>
                 </div>
                 
                 {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-cream/0 group-hover:bg-cream/5 transition-all duration-700" />
+                <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/10 transition-all duration-700" />
               </div>
 
               {/* Content */}
               <div className="space-y-4">
-                <span className="text-[10px] text-gold/50 tracking-[0.2em]">
+                <span className="text-[10px] text-charcoal/30 tracking-[0.2em]">
                   {pillar.number}
                 </span>
                 
-                <h3 className="font-serif text-xl lg:text-2xl text-cream font-normal tracking-wide">
+                <h3 className="font-serif text-xl lg:text-2xl text-charcoal font-normal tracking-wide">
                   {pillar.title}
                 </h3>
                 
-                <p className="text-[11px] tracking-[0.15em] uppercase text-cream/40">
+                <p className="text-[11px] tracking-[0.15em] uppercase text-charcoal/40">
                   {pillar.subtitle}
                 </p>
                 
-                <p className="text-cream/50 font-light text-sm leading-relaxed pt-2">
+                <p className="text-charcoal/55 font-light text-sm leading-relaxed pt-2">
                   {pillar.description}
                 </p>
                 
                 {/* CTA */}
-                <button className="group/btn flex items-center gap-2 text-cream/60 hover:text-cream pt-4 transition-colors duration-500">
+                <button className="group/btn flex items-center gap-2 text-charcoal/45 hover:text-charcoal pt-4 transition-colors duration-500">
                   <span className="text-[10px] tracking-[0.2em] uppercase font-light">
                     {pillar.cta}
                   </span>
