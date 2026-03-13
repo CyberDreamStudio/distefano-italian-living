@@ -18,7 +18,7 @@ const lifestyles = [
 
 export function Lifestyle() {
   return (
-    <section className="py-32 lg:py-48 bg-background">
+    <section className="py-40 lg:py-56 bg-background border-b border-charcoal/10">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Section Header - Minimal */}
         <FadeIn className="text-center mb-24 lg:mb-32">

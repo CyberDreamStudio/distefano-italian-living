@@ -3,7 +3,7 @@ import { FadeIn } from "@/components/ui/fade-in"
 
 export function Authority() {
   return (
-    <section id="about" className="py-32 lg:py-48 bg-background">
+    <section id="about" className="py-40 lg:py-56 bg-background">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         {/* Section Header - Minimal */}
         <FadeIn className="text-center mb-24 lg:mb-32">

@@ -4,7 +4,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="py-20 lg:py-28 bg-secondary border-t border-border">
+    <footer className="py-24 lg:py-32 bg-background border-t border-charcoal/10">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex flex-col items-center text-center">
           {/* Brand - Minimal */}
@@ -23,7 +23,7 @@ export function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="mt-16 pt-8 border-t border-border">
+        <div className="mt-16 pt-8 border-t border-charcoal/5">
           <p className="text-[10px] text-charcoal/25 font-light text-center tracking-wide">
             © {currentYear} DiStefano Italian Living
           </p>
