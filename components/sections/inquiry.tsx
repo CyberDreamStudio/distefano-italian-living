@@ -31,14 +31,17 @@ export function Inquiry() {
   }
 
   return (
-    <section id="contact" className="py-24 lg:py-32 bg-charcoal">
-      <div className="mx-auto max-w-3xl px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-12 lg:mb-16">
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-cream tracking-tight">
+    <section id="contact" className="py-32 lg:py-48 bg-charcoal">
+      <div className="mx-auto max-w-2xl px-6 lg:px-8">
+        {/* Section Header - Minimal */}
+        <div className="text-center mb-16 lg:mb-24">
+          <p className="text-[10px] tracking-[0.3em] uppercase text-gold/50 font-light mb-6">
+            Contact
+          </p>
+          <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-cream tracking-wide font-normal">
             Begin Your Italian Journey
           </h2>
-          <p className="mt-6 text-lg text-cream/60 font-light">
+          <p className="mt-6 text-sm text-cream/40 font-light tracking-wide">
             Tell us about your vision.
           </p>
         </div>
@@ -73,7 +76,7 @@ export function Inquiry() {
             <div>
               <label
                 htmlFor="name"
-                className="block text-sm text-cream/60 font-light tracking-wide mb-2"
+                className="block text-[10px] tracking-[0.2em] uppercase text-cream/50 font-light mb-3"
               >
                 Name
               </label>
@@ -91,7 +94,7 @@ export function Inquiry() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm text-cream/60 font-light tracking-wide mb-2"
+                className="block text-[10px] tracking-[0.2em] uppercase text-cream/50 font-light mb-3"
               >
                 Email
               </label>
@@ -109,7 +112,7 @@ export function Inquiry() {
             <div>
               <label
                 htmlFor="country"
-                className="block text-sm text-cream/60 font-light tracking-wide mb-2"
+                className="block text-[10px] tracking-[0.2em] uppercase text-cream/50 font-light mb-3"
               >
                 Country
               </label>
@@ -127,9 +130,9 @@ export function Inquiry() {
             <div>
               <label
                 htmlFor="budget"
-                className="block text-sm text-cream/60 font-light tracking-wide mb-2"
+                className="block text-[10px] tracking-[0.2em] uppercase text-cream/50 font-light mb-3"
               >
-                Property Budget Range
+                Budget Range
               </label>
               <Select name="budget">
                 <SelectTrigger className="bg-transparent border-cream/20 text-cream rounded-none focus:border-gold/60 focus:ring-0">
@@ -148,7 +151,7 @@ export function Inquiry() {
             <div>
               <label
                 htmlFor="message"
-                className="block text-sm text-cream/60 font-light tracking-wide mb-2"
+                className="block text-[10px] tracking-[0.2em] uppercase text-cream/50 font-light mb-3"
               >
                 Message
               </label>
@@ -165,13 +168,13 @@ export function Inquiry() {
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="w-full rounded-none bg-cream text-charcoal hover:bg-cream/90 py-6 text-sm font-light tracking-wider mt-8"
+              className="w-full rounded-none bg-cream/10 border border-cream/20 text-cream hover:bg-cream/20 py-6 text-[10px] font-light tracking-[0.2em] uppercase mt-10 transition-all duration-500"
             >
-              {isSubmitting ? "Sending..." : "Request Private Consultation"}
+              {isSubmitting ? "Sending..." : "Request Consultation"}
             </Button>
 
             {/* Privacy Note */}
-            <p className="text-center text-xs text-cream/40 font-light mt-6">
+            <p className="text-center text-[10px] text-cream/30 font-light mt-8 tracking-wide">
               All inquiries are handled privately and confidentially.
             </p>
           </form>
