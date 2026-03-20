@@ -94,7 +94,7 @@ export function Hero() {
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
         <Link 
-          href="#experience"
+          href="#offer"
           className="flex flex-col items-center text-white/60 hover:text-white/80 transition-colors duration-300"
         >
           <span className="text-xs tracking-widest uppercase mb-2">Discover</span>
